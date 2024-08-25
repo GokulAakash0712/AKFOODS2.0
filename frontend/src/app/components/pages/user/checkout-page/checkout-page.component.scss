@@ -1,0 +1,26 @@
+.btn {
+  background-color: red;
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: none;
+}
+
+@media screen and (max-width: 376px) {
+  .choose-map {
+    font-size: 17px;
+    text-align: center;
+  }
+}

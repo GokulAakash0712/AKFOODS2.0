@@ -1,0 +1,167 @@
+<div class="navbar">
+  <div class="logo mt-3">
+    <p><a routerLink="/">AKFOODS</a></p>
+  </div>
+  <div class="menu mt-3">
+    <p><a routerLink="/user/home">Home</a></p>
+    <p><a routerLink="/user/menu">Menu</a></p>
+    <p><a routerLink="/user/about">About</a></p>
+    <p><a routerLink="/user/all-orders">MyOrders</a></p>
+    <p *ngIf="user?.isAdmin === true">
+      <a routerLink="/admin/home">Dashboard</a>
+    </p>
+  </div>
+  <div class="login-credentials mt-3">
+    <p class="cart">
+      <a routerLink="/user/cart-page"
+        ><i class="fa-solid fa-cart-shopping"></i>&nbsp;
+        <span *ngIf="cartQuantity > 0">{{ cartQuantity }}</span></a
+      >
+    </p>
+    <p *ngIf="isAuth">
+      <a routerLink="/">{{ user.name }}</a>
+    </p>
+    <p *ngIf="!isAuth" class="login" (click)="btnClick()">
+      <a routerLink="/">Login</a>
+    </p>
+    <p *ngIf="isAuth" class="login">
+      <a routerLink="/" (click)="logout()">Logout</a>
+    </p>
+    <p class="d-lg-none toggle" (click)="toggle()">
+      <a routerLink="/" *ngIf="isToggle"><i class="fa-solid fa-bars"></i></a>
+      <a *ngIf="!isToggle"><i class="fa-solid fa-times"></i></a>
+    </p>
+  </div>
+</div>
+<div class="menu-sm ps-3 pt-2" *ngIf="isMenu">
+  <p><a routerLink="/">Home</a></p>
+  <p><a routerLink="/">Menu</a></p>
+  <p><a routerLink="/">About</a></p>
+  <p><a routerLink="/user/all-orders">MyOrders</a></p>
+  <p *ngIf="user.isAdmin === true">
+    <a routerLink="/admin/home">Dashboard</a>
+  </p>
+</div>
+
+<!--Form Modal -->
+<div class="form-container container-fluid" *ngIf="form">
+  <div class="form" *ngIf="isLoginMode">
+    <!-- login form -->
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="head">
+        <p>Login</p>
+        <p><i class="fa fa-times" (click)="times()"></i></p>
+      </div>
+      <div class="form-input">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Your Email"
+          formControlName="email"
+        />
+        <div class="error" *ngIf="fc['email'].errors && isLoginSubmitted">
+          <div *ngIf="fc['email'].errors['required']">Email is required.</div>
+          <div *ngIf="fc['email'].errors['email']">Invalid Email.</div>
+        </div>
+      </div>
+      <div class="form-input mt-4">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div class="error" *ngIf="fc['password'].errors && isLoginSubmitted">
+          <div *ngIf="fc['password'].errors['required']">
+            Password is required.
+          </div>
+        </div>
+      </div>
+      <div class="button mt-4">
+        <button class="btn w-100" type="submit">Login</button>
+      </div>
+      <div class="switch mt-4">
+        <p>New User? <span (click)="switchMode()">Click here</span></p>
+      </div>
+    </form>
+  </div>
+  <!-- register form -->
+  <div class="form" *ngIf="!isLoginMode">
+    <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+      <div class="head">
+        <p>Sign In</p>
+        <p><i class="fa fa-times" (click)="times()"></i></p>
+      </div>
+      <div class="form-input">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Your Name"
+          formControlName="name"
+        />
+        <div class="error" *ngIf="rfc['name'].errors && isRegisterSubmitted">
+          <div *ngIf="rfc['name'].errors['required']">Name is required.</div>
+          <div *ngIf="rfc['name'].errors['minlength']">
+            Must contains Atleast 3 Characters.
+          </div>
+        </div>
+      </div>
+      <div class="form-input mt-4">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Your Email"
+          formControlName="email"
+        />
+        <div class="error" *ngIf="rfc['email'].errors && isRegisterSubmitted">
+          <div *ngIf="rfc['email'].errors['required']">Email is required.</div>
+          <div *ngIf="rfc['email'].errors['email']">Invalid Email.</div>
+        </div>
+      </div>
+      <div class="form-input mt-4">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <div
+          class="error"
+          *ngIf="rfc['password'].errors && isRegisterSubmitted"
+        >
+          <div *ngIf="rfc['password'].errors['required']">
+            Password is required.
+          </div>
+          <div *ngIf="rfc['password'].errors['minlength']">
+            Must contains Atleast 5 Characters.
+          </div>
+        </div>
+      </div>
+      <div class="form-input mt-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Address"
+          formControlName="address"
+        />
+        <div class="error" *ngIf="rfc['address'].errors && isRegisterSubmitted">
+          <div *ngIf="rfc['address'].errors['required']">
+            Address is required.
+          </div>
+          <div *ngIf="rfc['address'].errors['minlength']">
+            Must contains Atleast 5 Characters
+          </div>
+        </div>
+      </div>
+      <div class="button mt-4">
+        <button class="btn w-100" type="submit">Create Account</button>
+      </div>
+      <div class="switch mt-4">
+        <p>
+          Already have an account?
+          <span (click)="switchMode()">Login here</span>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<!-- <div class="order-items bg-dark text-light mt-2" *ngFor="let item of order.items">
+  <div class="image">
+    <img [src]="item.food.image" [alt]="item.food.name" />
+  </div>
+  <div class="item">{{ item.food.name }}</div>
+  <div class="price">{{ item.food.price | currency : "INR" }}</div>
+  <div class="quantity">{{ item.quantity }}</div>
+  <div class="total">{{ item.price | currency : "INR" }}</div>
+</div>
+<div class="total-price text-end mt-2">
+  <b>Total : {{ order.totalPrice | currency : "INR" }}</b>
+</div> -->
+
+<div class="tables">
+  <table class="table table-dark table-hover">
+    <tbody>
+      <tr *ngFor="let item of order.items">
+        <td><img [src]="item.food.image" [alt]="item.food.name" /></td>
+        <td class="pt-3 name">{{ item.food.name }}</td>
+        <td class="pt-3 name">{{ item.food.price | currency : "INR" }}</td>
+        <td class="pt-3 name">{{ item.quantity }}</td>
+        <td class="pt-3 name">{{ item.price | currency : "INR" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="total-price text-end mt-2">
+  <b>Total : {{ order.totalPrice | currency : "INR" }}</b>
+</div>

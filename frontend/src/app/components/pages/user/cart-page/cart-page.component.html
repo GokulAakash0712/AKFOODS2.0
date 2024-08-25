@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <h2>Cart Page</h2>
+  <div class="row mt-5">
+    <app-not-found
+      [visible]="!cart || !cart.items.length"
+      notFoundMessage="No Items in Cart"
+      resetLinkText="Go To HomePage"
+    ></app-not-found>
+  </div>
+  <div class="row" *ngIf="cart && cart.items.length">
+    <div class="col-lg-7 tables">
+      <table class="table table-dark table-hover">
+        <tbody>
+          <tr *ngFor="let cartItem of cart.items">
+            <td><img [src]="cartItem.food.image" /></td>
+            <td class="pt-3 name">{{ cartItem.food.name }}</td>
+            <td class="pt-3 quantity">
+              <!-- <p class="btn btn-add" (click)="changeQuantity(cartItem, cartItem.quantity - 1)">-</p>
+              <input type="text" #quantitySelect [value]="cartItem.quantity">
+              <p class="btn btn-decrease" (click)="changeQuantity(cartItem, cartItem.quantity + 1)">+</p> -->
+              <select
+                #quantitySelect
+                [value]="cartItem.quantity"
+                (change)="changeQuantity(cartItem, quantitySelect.value)"
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </td>
+            <td class="pt-3 price">{{ cartItem.price | currency : "INR" }}</td>
+            <td class="pt-3">
+              <i class="fa fa-trash" (click)="removeCartItem(cartItem)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-lg-5 ms-auto">
+      <div
+        class="checkout ms-auto me-auto me-lg-0 me-xl-0 mt-4 mt-lg-0 mt-xl-0"
+      >
+        <div class="total-count">
+          Count: <b>{{ cart.totalCount }}</b>
+        </div>
+        <div class="total-price">
+          Price: <b>{{ cart.totalPrice | currency : "INR" }}</b>
+        </div>
+        <div class="button mt-3">
+          <button class="btn w-100" routerLink="/user/checkout-page">
+            Proceed To Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

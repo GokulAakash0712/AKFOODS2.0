@@ -1,0 +1,100 @@
+.food-container {
+  background-color: black;
+  color: white;
+  padding: 50px 0;
+}
+
+.foods-container {
+  min-height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+
+.food-cards {
+  height: 350px;
+  width: 250px;
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  background-color: #fff;
+  color: black;
+}
+
+.image {
+  height: 50%;
+  width: 100%;
+  border-radius: 7px;
+  img {
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    border-radius: 7px 7px 0 0;
+  }
+}
+
+.content {
+  height: 35%;
+  width: 100%;
+  padding: 15px;
+}
+
+.cart{
+  padding: 0 15px;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: red;
+  color: white;
+  &:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+  }
+}
+
+.name {
+  height: 30px;
+}
+
+.description {
+  height: 55px;
+  overflow: hidden;
+}
+
+.stars{
+  height: 25px;
+}
+
+h2 {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  &::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 50%;
+    margin: 10px auto;
+    background-color: red;
+    text-align: center;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}

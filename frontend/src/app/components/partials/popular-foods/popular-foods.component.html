@@ -1,0 +1,46 @@
+<div class="food-container">
+  <h2>POPULAR FOODS</h2>
+  <div class="tags mt-5">
+    <app-tags></app-tags>
+  </div>
+  <div class="not-found mt-4">
+    <app-not-found
+      [visible]="!foods || !foods.length"
+      resetLinkText="Reset Search"
+    ></app-not-found>
+  </div>
+  <div class="foods-container container mt-4">
+    <div class="foods" *ngFor="let food of foods">
+        <div class="food-cards">
+          <a routerLink="/user/food/{{ food.id }}">
+          <div class="image">
+            <img [src]="food.image" [alt]="food.name" />
+          </div>
+          <div class="content">
+            <div class="name">
+              <b>{{ food.name }}</b>
+            </div>
+            <div class="stars">
+              <app-star-rating
+                [stars]="food.ratings ? food.ratings : 3.5"
+              ></app-star-rating>
+            </div>
+            <div class="description">
+              <p>{{ food.description.slice(0, 100) }}...</p>
+            </div>
+          </div>
+          </a>
+          <div class="cart">
+            <div class="view">
+              <p class="price">{{ food.price | currency : "INR" }}</p>
+              <p>
+                <button class="btn" (click)="addToCart(food)">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

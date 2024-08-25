@@ -1,0 +1,132 @@
+h1 {
+  width: 250px;
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 100px;
+    background-color: red;
+    margin-top: 7px;
+  }
+}
+
+.fa {
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+select {
+  border-radius: 2px;
+  background-color: transparent;
+  color: white;
+}
+
+option {
+  color: black;
+  background-color: white;
+}
+
+//form
+.form-container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.form {
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button {
+  outline: none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+
+td {
+  min-height: 50px;
+}
+
+.action {
+  display: flex;
+  gap: 2px;
+}
+
+@media screen and (max-width: 426px) {
+  .table {
+    font-size: 10px;
+  }
+  button {
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .table {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .table {
+    font-size: 7px;
+  }
+  .table-container {
+    overflow-x: scroll;
+  }
+  button {
+    height: 10px;
+    width: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

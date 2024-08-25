@@ -1,0 +1,146 @@
+h1 {
+  width: 250px;
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 100px;
+    background-color: red;
+    margin-top: 7px;
+  }
+}
+
+.foods-container {
+  min-height: 100px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.food-cards {
+  height: 320px;
+  width: 250px;
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  background-color: #fff;
+  color: black;
+}
+
+.image {
+  height: 50%;
+  width: 100%;
+  border-radius: 7px;
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+  }
+}
+
+.content {
+  height: 50%;
+  width: 100%;
+  padding: 15px;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+}
+
+.name {
+  height: 27px;
+}
+
+.description {
+  height: 50px;
+  overflow: hidden;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit {
+  background-color: black;
+  color: white;
+}
+
+.btn-trash {
+  background-color: red;
+  color: white;
+}
+
+//form
+.alert {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.alert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.form {
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-times {
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+@media screen and (max-width: 769px) {
+  .foods-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+}
+

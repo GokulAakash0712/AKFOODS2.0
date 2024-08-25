@@ -1,0 +1,77 @@
+<!-- create-foods.component.html -->
+<div class="container mt-5">
+  <h1>{{ isEditMode ? "Edit Foods" : "Create Foods" }}</h1>
+</div>
+<div class="create-form mt-4 mt-lg-5 mt-md-5">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-input image">
+      <input type="file" class="form-control" (change)="onFileSelect($event)" />
+      <div class="imagedata" *ngIf="imageData">
+        <img [src]="imageData" [alt]="form.value.name" />
+      </div>
+    </div>
+    <div class="form-input mt-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Food Name"
+        formControlName="name"
+      />
+      <div
+        *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+        class="error"
+      >
+        Food Name is required.
+      </div>
+    </div>
+    <div class="form-input mt-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Tag Name Eg: Burger"
+        formControlName="tags"
+      />
+      <div
+        *ngIf="form.controls['tags'].invalid && form.controls['tags'].touched"
+        class="error"
+      >
+        Tags are required.
+      </div>
+    </div>
+    <div class="form-input mt-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Price"
+        formControlName="price"
+      />
+      <div
+        *ngIf="form.controls['price'].invalid && form.controls['price'].touched"
+        class="error"
+      >
+        Price is required.
+      </div>
+    </div>
+    <div class="form-input mt-4">
+      <textarea
+        class="form-control"
+        placeholder="Food Description"
+        formControlName="description"
+      ></textarea>
+      <div
+        *ngIf="
+          form.controls['description'].invalid &&
+          form.controls['description'].touched
+        "
+        class="error"
+      >
+        Description is required.
+      </div>
+    </div>
+    <div class="button mt-5">
+      <button class="btn w-100" type="submit">
+        {{ isEditMode ? "Update Food" : "Create Food" }}
+      </button>
+    </div>
+  </form>
+</div>

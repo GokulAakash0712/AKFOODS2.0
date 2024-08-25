@@ -1,0 +1,62 @@
+h1 {
+  width: 250px;
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 150px;
+    background-color: red;
+    margin-top: 7px;
+  }
+}
+
+.tag {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background-color: red;
+  color: white;
+  padding: 7px 20px;
+}
+
+input:focus {
+  box-shadow: none;
+}
+
+textarea:focus {
+  box-shadow: none;
+}
+
+.create-form {
+  width: 400px;
+  margin: auto;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.error {
+  color: red;
+}
+
+@media screen and (max-width: 426px) {
+  .create-form {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .create-form {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .create-form {
+    width: 250px;
+  }
+}

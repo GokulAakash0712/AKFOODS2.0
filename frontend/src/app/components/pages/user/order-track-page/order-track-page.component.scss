@@ -1,0 +1,31 @@
+.orders {
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+
+@media screen and (max-width: 426px) {
+  h2 {
+    font-size: 22px;
+  }
+  .orders {
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  h2 {
+    font-size: 20px;
+  }
+  .orders {
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  h2 {
+    font-size: 18px;
+  }
+  .orders {
+    overflow-x: scroll;
+  }
+}

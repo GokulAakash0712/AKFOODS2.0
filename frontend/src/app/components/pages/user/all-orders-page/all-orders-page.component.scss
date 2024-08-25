@@ -1,0 +1,56 @@
+.fa-eye {
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}
+
+h2 {
+  width: 250px;
+  &::after {
+    content: "";
+    height: 5px;
+    width: 50%;
+    display: block;
+    background-color: red;
+    margin-top: 3px;
+  }
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+.container {
+  height: 50vh;
+}
+
+@media screen and (max-width: 450px) {
+  .table-container {
+    width: 400px;
+    overflow-x: scroll;
+  }
+  table{
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 394px) {
+  .table-container {
+    width: 350px;
+    overflow-x: scroll;
+  }
+  table{
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 361px) {
+  .table-container {
+    width: 300px;
+    overflow-x: scroll;
+  }
+  table{
+    font-size: 7px;
+  }
+}

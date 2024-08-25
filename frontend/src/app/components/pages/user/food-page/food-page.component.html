@@ -1,0 +1,40 @@
+<div class="mt-5">
+  <!-- <app-not-found
+    [visible]="!food"
+    notFoundMessage="Food Not Found!"
+    resetLinkText="Back To Home"
+  ></app-not-found> -->
+</div>
+<div class="container" *ngIf="food">
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="image">
+        <img [src]="food.image" [alt]="food.name" />
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="content mt-5">
+        <div class="name">
+          <h2>
+            <b>{{ food.name }}</b>
+          </h2>
+        </div>
+        <div class="star">
+          <app-star-rating
+            [stars]="food.ratings ? food.ratings : 3.5"
+            [size]="1.5"
+          ></app-star-rating>
+        </div>
+        <div class="tags mt-3">
+          <div class="tag">{{ food.tags }}</div>
+        </div>
+        <div class="price mt-3">
+          Price: <b>{{ food.price | currency : "INR" }}</b>
+        </div>
+        <div class="button mt-3">
+          <button class="btn" (click)="addToCart()">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

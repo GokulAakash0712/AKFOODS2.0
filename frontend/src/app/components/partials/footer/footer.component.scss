@@ -1,0 +1,31 @@
+.footer {
+  min-height: 100px;
+  background-color: #333;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  li {
+    margin: 5px 3px;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.copyrights {
+  color: red;
+  font-size: 20px;
+}

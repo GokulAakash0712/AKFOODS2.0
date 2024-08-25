@@ -1,0 +1,16 @@
+.admin-view {
+  min-height: 60vh;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .admin-view {
+    padding-left: 30px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .admin-view {
+    padding-left: 25px;
+  }
+}

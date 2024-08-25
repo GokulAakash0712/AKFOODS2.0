@@ -1,0 +1,27 @@
+.tag {
+  border: 2px solid red;
+  background-color: transparent;
+  color: red;
+  padding: 5px 10px;
+  border-radius: 7px;
+  &:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    overflow-x: hidden;
+    justify-content: center;
+    gap: 40px;
+  }
+}

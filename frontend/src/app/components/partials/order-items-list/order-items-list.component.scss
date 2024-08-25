@@ -1,0 +1,41 @@
+img {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 1px solid;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 426px) {
+  .tables {
+    width: 400px;
+    overflow-x: scroll;
+  }
+  table {
+    font-size: 10px;
+  }
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .tables {
+    width: 350px;
+    overflow-x: scroll;
+  }
+  table {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .tables {
+    width: 300px;
+    overflow-x: scroll;
+  }
+  table {
+    font-size: 7px;
+  }
+}
