@@ -1,6 +1,6 @@
 <div class="container">
   <div class="tags" *ngFor="let tag of tags">
-    <p routerLink="/user/tag/{{ tag.name }}" class="tag">
+    <p routerLink="/user/tag/{{ tag.name }}" class="tag" fragment="menu">
       {{ tag.name }}
     </p>
   </div>

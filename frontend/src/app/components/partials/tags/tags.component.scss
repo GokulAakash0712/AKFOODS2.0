@@ -25,3 +25,12 @@
     gap: 40px;
   }
 }
+
+@media (max-width: 321px) {
+  .container {
+    overflow-x: hidden;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+

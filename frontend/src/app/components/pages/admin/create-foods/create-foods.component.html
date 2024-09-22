@@ -2,7 +2,7 @@
 <div class="container mt-5">
   <h1>{{ isEditMode ? "Edit Foods" : "Create Foods" }}</h1>
 </div>
-<div class="create-form mt-4 mt-lg-5 mt-md-5">
+<div class="create-form mt-4 mt-lg-5 mt-md-5 mb-5">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-input image">
       <input type="file" class="form-control" (change)="onFileSelect($event)" />

@@ -1,14 +1,14 @@
 <div class="navbar">
   <div class="logo mt-3">
-    <p><a routerLink="/">AKFOODS</a></p>
+    <p><a routerLink="/" fragment="header">AKFOODS</a></p>
   </div>
   <div class="menu mt-3">
-    <p><a routerLink="/user/home">Home</a></p>
-    <p><a routerLink="/user/menu">Menu</a></p>
-    <p><a routerLink="/user/about">About</a></p>
-    <p><a routerLink="/user/all-orders">MyOrders</a></p>
+    <p><a routerLink="/" fragment="header">Home</a></p>
+    <p><a routerLink="/" fragment="menu">Menu</a></p>
+    <p><a routerLink="/" fragment="about">About</a></p>
+    <p><a routerLink="/user/all-orders" fragment="orders">MyOrders</a></p>
     <p *ngIf="user?.isAdmin === true">
-      <a routerLink="/admin/home">Dashboard</a>
+      <a routerLink="/admin/home" fragment="dashboard">Dashboard</a>
     </p>
   </div>
   <div class="login-credentials mt-3">
@@ -28,18 +28,18 @@
       <a routerLink="/" (click)="logout()">Logout</a>
     </p>
     <p class="d-lg-none toggle" (click)="toggle()">
-      <a routerLink="/" *ngIf="isToggle"><i class="fa-solid fa-bars"></i></a>
-      <a *ngIf="!isToggle"><i class="fa-solid fa-times"></i></a>
+      <i class="fa-solid fa-bars" *ngIf="isToggle"></i>
+      <i class="fa-solid fa-times" *ngIf="!isToggle"></i>
     </p>
   </div>
 </div>
 <div class="menu-sm ps-3 pt-2" *ngIf="isMenu">
-  <p><a routerLink="/">Home</a></p>
-  <p><a routerLink="/">Menu</a></p>
-  <p><a routerLink="/">About</a></p>
-  <p><a routerLink="/user/all-orders">MyOrders</a></p>
+  <p><a routerLink="/" fragment="header">Home</a></p>
+  <p><a routerLink="/" fragment="menu">Menu</a></p>
+  <p><a routerLink="/" fragment="about">About</a></p>
+  <p><a routerLink="/user/all-orders" fragment="orders">MyOrders</a></p>
   <p *ngIf="user.isAdmin === true">
-    <a routerLink="/admin/home">Dashboard</a>
+    <a routerLink="/admin/home" fragment="dashboard">Dashboard</a>
   </p>
 </div>
 
@@ -101,6 +101,7 @@
         />
         <div class="error" *ngIf="rfc['name'].errors && isRegisterSubmitted">
           <div *ngIf="rfc['name'].errors['required']">Name is required.</div>
+          <div *ngIf="rfc['name'].errors['pattern']">Name contains alphabets only.</div>
           <div *ngIf="rfc['name'].errors['minlength']">
             Must contains Atleast 3 Characters.
           </div>
@@ -115,7 +116,7 @@
         />
         <div class="error" *ngIf="rfc['email'].errors && isRegisterSubmitted">
           <div *ngIf="rfc['email'].errors['required']">Email is required.</div>
-          <div *ngIf="rfc['email'].errors['email']">Invalid Email.</div>
+          <div *ngIf="rfc['email'].errors['pattern']">Invalid Email.</div>
         </div>
       </div>
       <div class="form-input mt-4">

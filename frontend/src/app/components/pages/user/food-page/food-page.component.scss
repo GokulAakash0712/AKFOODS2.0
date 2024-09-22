@@ -51,6 +51,58 @@ img {
   padding: 0 10px;
 }
 
+.progress-div {
+  display: flex;
+  width: 300px;
+}
+
+.progress {
+  width: 100%;
+}
+
+ul {
+  display: flex;
+  gap: 10px;
+  margin-left: -17px;
+}
+
+li {
+  list-style: none;
+  font-size: 25px;
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}
+
+.fa-star {
+  font-size: 24px;
+  color: red;
+  margin-right: 5px;
+}
+
+.btn-rating {
+  width: 100px;
+}
+
+.overall-rating {
+  margin-left: 40px;
+  .rating {
+    p {
+      font-size: 40px;
+    }
+  }
+}
+
+.ratings {
+  width: 60%;
+  margin: auto;
+}
+
+.progress-bar{
+  background-color: red;
+}
+
 @media screen and (max-width: 769px) {
   .container {
     margin-top: 30px;
@@ -62,8 +114,16 @@ img {
     border: 1px solid;
     border-radius: 7px;
   }
+  .ratings {
+    width: 60%;
+    margin: auto;
+  }
   .content {
     width: 60%;
+    margin: auto;
+  }
+  .overall-rating {
+    width: 55%;
     margin: auto;
   }
 }
@@ -76,8 +136,30 @@ img {
     border: 1px solid;
     border-radius: 7px;
   }
+  .ratings {
+    width: 90%;
+    margin: auto;
+  }
   .content {
     width: 90%;
     margin: auto;
+  }
+  .overall-rating {
+    width: 84%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .progress-div {
+    display: flex;
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .progress-div {
+    display: flex;
+    width: 200px;
   }
 }

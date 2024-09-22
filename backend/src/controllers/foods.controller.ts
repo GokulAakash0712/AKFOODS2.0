@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Foods from "../models/food.model";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
+import { error } from "console";
 
 const addFoods = asyncHandler(async (req: any, res: any) => {
   try {
@@ -120,6 +121,47 @@ const deleteFoodById = asyncHandler(async (req, res) => {
   }
 });
 
+const updateFoodRating = asyncHandler(async (req:any, res:any) => {
+  try {
+    const { foodId } = req.params;
+    const { rating } = req.body;
+
+    //check if the rating is provided
+    if (!rating) {
+      return res.status(HTTP_BAD_REQUEST).json({error:"Rating is required"})
+    }
+
+    //validate the rating value 
+    if (rating < 0 || rating > 5) {
+      return res.status(HTTP_BAD_REQUEST).json({ error: "Rating must be between 0 and 5" });
+    }
+
+    //find the food by id
+    const food = await Foods.findById(foodId);
+
+    if (!food) {
+      return res.status(HTTP_BAD_REQUEST).json({ error: "Food not found" });
+    }
+
+    //add the new rating to the array of individual rating
+    food.individualRatings.push(rating);
+
+    //update the ratings count
+    food.ratingsCount = food.individualRatings.length;
+
+    //recalculate the average rating
+    const totalRatings = food.individualRatings.reduce((acc, curr) => acc + curr, 0);
+    food.ratings = totalRatings / food.ratingsCount;
+
+    //save the update food item
+    await food.save();
+
+    res.json(food);
+  } catch (error) {
+    res.status(HTTP_BAD_REQUEST).json({ error: "Failed to update rating" });
+  }
+})
+
 export {
   addFoods,
   getAllFoods,
@@ -128,5 +170,6 @@ export {
   searchedTags,
   foodById,
   updateFoods,
-  deleteFoodById
+  deleteFoodById,
+  updateFoodRating
 };

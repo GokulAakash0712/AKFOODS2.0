@@ -3,12 +3,31 @@
   padding: 20px;
 }
 
+.track {
+  padding: 70px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 300px;
+  row-gap: 50px;
+}
+
+.order-details {
+  width: 500px;
+  // padding: 0 20px;
+}
+
+
 @media screen and (max-width: 426px) {
   h2 {
     font-size: 22px;
   }
   .orders {
     overflow-x: scroll;
+  }
+  .order-details {
+    width: 400px;
   }
 }
 
@@ -19,6 +38,9 @@
   .orders {
     overflow-x: scroll;
   }
+  .order-details {
+    width: 350px;
+  }
 }
 
 @media screen and (max-width: 321px) {
@@ -27,5 +49,8 @@
   }
   .orders {
     overflow-x: scroll;
+  }
+  .order-details {
+    width: 270px;
   }
 }

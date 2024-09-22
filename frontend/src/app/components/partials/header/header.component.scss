@@ -1,6 +1,6 @@
 .image {
-  height: 100%;
-  width: 100%;
+  height: 400px;
+  width: 400px;
 }
 
 img {
@@ -46,6 +46,15 @@ input {
 
 span {
   color: red;
+}
+
+.header{
+  padding: 70px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 300px;
 }
 
 @media screen and (max-width: 426px) {

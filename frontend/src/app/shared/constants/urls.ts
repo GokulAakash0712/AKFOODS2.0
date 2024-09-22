@@ -13,6 +13,7 @@ export const FOODS_BY_TAG_URL = BASE_URL + '/api/foods/tag/';
 export const FOODS_BY_ID_URL = BASE_URL + '/api/foods/';
 export const UPDATE_FOODS_URL = BASE_URL + '/api/foods/';
 export const DELETE_FOODS_URL = BASE_URL + '/api/foods/';
+export const RATING_FOOD_URL = BASE_URL + '/api/foods/';
 
 export const ORDERS_URL = BASE_URL + '/api/orders';
 export const ORDER_CREATE_URL = ORDERS_URL + '/create';

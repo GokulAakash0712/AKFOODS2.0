@@ -3,6 +3,8 @@ export class Food {
   name!: string;
   price!: number;
   ratings?: number;
+  ratingsCount?: number;
+  individualRatings?: [];
   tags!: string;
   description!: string;
   image!: string;

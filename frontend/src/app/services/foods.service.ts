@@ -9,6 +9,7 @@ import {
   FOODS_BY_SEARCH_URL,
   FOODS_BY_TAG_URL,
   FOODS_TAGS_URL,
+  RATING_FOOD_URL,
   UPDATE_FOODS_URL,
 } from '../shared/constants/urls';
 import { Food } from '../shared/models/Food';
@@ -64,5 +65,9 @@ export class FoodsService {
 
   deleteFood(id: string): Observable<any> {
     return this.http.delete(DELETE_FOODS_URL + id);
+  }
+
+  updateFoodRating(id: string, payload: any): Observable<Food>{
+    return this.http.put<Food>(RATING_FOOD_URL + `${id}/rating`, payload);
   }
 }

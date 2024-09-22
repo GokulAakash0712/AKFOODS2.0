@@ -46,6 +46,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
 import { OrderTrackPageComponent } from './components/pages/user/order-track-page/order-track-page.component';
 import { AllOrdersPageComponent } from './components/pages/user/all-orders-page/all-orders-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ import { AllOrdersPageComponent } from './components/pages/user/all-orders-page/
       progressAnimation: 'increasing',
       preventDuplicates: true,
       positionClass: 'toast-top-right',
-    }),
+    })
   ],
   providers: [
     provideClientHydration(),

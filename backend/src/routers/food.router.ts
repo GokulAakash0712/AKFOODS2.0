@@ -40,6 +40,7 @@ import {
   getAllTags,
   searchedTags,
   searchTerm,
+  updateFoodRating,
   updateFoods,
 } from "../controllers/foods.controller";
 
@@ -66,5 +67,6 @@ router.route("/search/:searchTerm").get(searchTerm);
 router.route("/tags").get(getAllTags);
 router.route("/tag/:tagName").get(searchedTags);
 router.route("/:foodId").get(foodById);
+router.route("/:foodId/rating").put(updateFoodRating);
 
 export default router;

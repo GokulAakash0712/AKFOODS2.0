@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../shared/models/User';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { IUserRegister } from '../../../shared/interfaces/IUserRegister';
 import { CartService } from '../../../services/cart.service';
 
@@ -30,6 +30,18 @@ export class NavbarComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const tree = this.router.parseUrl(this.router.url);
+        if (tree.fragment) {
+          const element = document.getElementById(tree.fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    });
+
     this.cartService.getCartObservable().subscribe((newCart) => {
       this.cartQuantity = newCart.totalCount;
       this.cdr.detectChanges();
@@ -41,8 +53,24 @@ export class NavbarComponent implements OnInit {
     });
 
     this.registerForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern(/^[a-zA-Z]+$/),
+        ],
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern(
+            /^[a-z0-9_]{3,}@[a-z0-9]{3,}\.[a-z]{2,}(\.[a-z]{2,})?$/
+          ),
+        ],
+      ],
       password: ['', [Validators.required, Validators.minLength(5)]],
       address: ['', [Validators.required, Validators.minLength(5)]],
     });
